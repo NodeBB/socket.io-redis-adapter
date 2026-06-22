@@ -1,4 +1,4 @@
-# Socket.IO Redis adapter
+<h1>Socket.IO Redis adapter</h1>
 
 The `@socket.io/redis-adapter` package allows broadcasting packets between multiple Socket.IO servers.
 
@@ -9,21 +9,24 @@ The `@socket.io/redis-adapter` package allows broadcasting packets between multi
 
 **Table of contents**
 
-- [Supported features](#supported-features)
-- [Installation](#installation)
-- [Compatibility table](#compatibility-table)
-- [Usage](#usage)
-  - [With the `redis` package](#with-the-redis-package)
-  - [With the `redis` package and a Redis cluster](#with-the-redis-package-and-a-redis-cluster)
-  - [With the `ioredis` package](#with-the-ioredis-package)
-  - [With the `ioredis` package and a Redis cluster](#with-the-ioredis-package-and-a-redis-cluster)
-  - [With Redis sharded Pub/Sub](#with-redis-sharded-pubsub)
-    - [With `redis`](#with-redis)
-    - [With `ioredis`](#with-ioredis)
-- [Options](#options)
-  - [Default adapter](#default-adapter)
-  - [Sharded adapter](#sharded-adapter)
-- [License](#license)
+<!-- TOC -->
+  * [Supported features](#supported-features)
+  * [Security notice](#security-notice)
+  * [Installation](#installation)
+  * [Compatibility table](#compatibility-table)
+  * [Usage](#usage)
+    * [With the `redis` package](#with-the-redis-package)
+    * [With the `redis` package and a Redis cluster](#with-the-redis-package-and-a-redis-cluster)
+    * [With the `ioredis` package](#with-the-ioredis-package)
+    * [With the `ioredis` package and a Redis cluster](#with-the-ioredis-package-and-a-redis-cluster)
+    * [With Redis sharded Pub/Sub](#with-redis-sharded-pubsub)
+      * [With `redis`](#with-redis)
+      * [With `ioredis`](#with-ioredis)
+  * [Options](#options)
+    * [Default adapter](#default-adapter)
+    * [Sharded adapter](#sharded-adapter)
+  * [License](#license)
+<!-- TOC -->
 
 ## Supported features
 
@@ -33,6 +36,14 @@ The `@socket.io/redis-adapter` package allows broadcasting packets between multi
 | Inter-server communication      | `4.1.0`             | :white_check_mark: YES (since version `7.0.0`) |
 | Broadcast with acknowledgements | `4.5.0`             | :white_check_mark: YES (since version `7.2.0`) |
 | Connection state recovery       | `4.6.0`             | :x: NO                                         |
+
+## Security notice
+
+The Redis adapter assumes that Redis is part of the trusted internal infrastructure.
+
+Messages exchanged through Redis Pub/Sub are not signed, encrypted, or authenticated by the adapter. Anyone able to publish to the adapter channels may be able to inject packets or control messages. Redis should therefore not be exposed to untrusted networks or shared with untrusted clients.
+
+Please use Redis ACLs, authentication, TLS, firewall rules, private networking, and dedicated credentials/channel permissions where appropriate.
 
 ## Installation
 
