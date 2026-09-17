@@ -1,11 +1,11 @@
 {
-  "name": "@socket.io/redis-adapter",
+  "name": "@nodebb/socket.io-redis-adapter",
   "version": "8.3.0",
-  "description": "The Socket.IO Redis adapter, allowing to broadcast events between several Socket.IO servers",
+  "description": "NodeBB fork of The Socket.IO Redis adapter with redis sentinel fix applied",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:socketio/socket.io-redis-adapter.git"
+    "url": "git@github.com:NodeBB/socket.io-redis-adapter.git"
   },
   "files": [
     "dist/"
