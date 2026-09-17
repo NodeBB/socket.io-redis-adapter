@@ -1,6 +1,6 @@
 {
   "name": "@nodebb/socket.io-redis-adapter",
-  "version": "8.3.0",
+  "version": "8.3.1",
   "description": "NodeBB fork of The Socket.IO Redis adapter with redis sentinel fix applied",
   "license": "MIT",
   "repository": {
